@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffffff;
+  --color-secondary: #e0e0e0;
+  --color-accent: #8b5cf6;
+  --color-background: #000000;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
