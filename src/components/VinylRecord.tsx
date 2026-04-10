@@ -69,7 +69,19 @@ const VinylRecord: React.FC<VinylRecordProps> = ({
           <circle cx="100" cy="100" r="40" fill={showImage ? 'transparent' : accentColor} fillOpacity="0.3" filter="url(#vinylGlow)" />
 
           {showImage && (
-            <g clipPath="url(#vinylImageClip)">
+            // --- CHANGE HERE: Changed <g> to <motion.g> to allow animations ---
+            <motion.g 
+              clipPath="url(#vinylImageClip)"
+              // Set the origin of rotation to the center of the image
+              style={{ transformOrigin: 'center' }}
+              // Animate rotation based on isPlaying state
+              animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
+              transition={isPlaying ? {
+                duration: 3, // Seconds per rotation
+                repeat: Infinity,
+                ease: "linear"
+              } : { duration: 0 }}
+            >
               <image
                 href={image}
                 x="60"
@@ -87,7 +99,7 @@ const VinylRecord: React.FC<VinylRecordProps> = ({
                 stroke="rgba(255,255,255,0.3)"
                 strokeWidth="1.5"
               />
-            </g>
+            </motion.g>
           )}
 
           {!showImage && (
